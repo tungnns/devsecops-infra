@@ -20,7 +20,7 @@ spec:
         emptyDir: {}
       serviceAccountName: default
       containers:
-      - image: tungnns/numeric-app:f9b6d34910b23d1853cba80022877af1ab07a76f "tungnns/numeric-app:5b50170f31b65848a5db040c148b2f9aceb94e66"
+      - image: tungnns/numeric-app:f9b6d34910b23d1853cba80022877af1ab07a76f
         name: devsecops-container
         volumeMounts:
         - mountPath: /tmp
