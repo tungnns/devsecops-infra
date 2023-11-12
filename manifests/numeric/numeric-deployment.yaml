@@ -22,6 +22,13 @@ spec:
       containers:
       - image: tungnns/numeric-app:80a51eae7c6825cefe7487912e2556c40272563d
         name: devsecops-container
+        resources: 
+          requests:
+            cpu: 512m
+            memory: 512Mi
+          limits:
+            cpu: 512m 
+            memory: 512Mi
         volumeMounts:
         - mountPath: /tmp
           name: vol
@@ -29,3 +36,4 @@ spec:
           runAsNonRoot: true
           runAsUser: 100
           readOnlyRootFilesystem: true
+        
