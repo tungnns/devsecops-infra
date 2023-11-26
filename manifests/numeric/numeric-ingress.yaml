@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: numeric-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: numeric.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: numeric-svc
+            port:
+              number: 8080

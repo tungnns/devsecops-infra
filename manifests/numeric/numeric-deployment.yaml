@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: devsecops
-  name: devsecops
+    app: numeric
+  name: numeric-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: devsecops
+      app: numeric
   strategy: {}
   template:
     metadata:
       labels:
-        app: devsecops
+        app: numeric
     spec:
       volumes:
       - name: vol
@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       containers:
       - image: tungnns/numeric-app:32b6492b163119b407aa66fbcf49ec17fcc27bd5
-        name: devsecops-container
+        name: numeric-container
         resources: 
           requests:
             cpu: 512m
