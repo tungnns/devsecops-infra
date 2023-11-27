@@ -20,7 +20,7 @@ spec:
         emptyDir: {}
       serviceAccountName: default
       containers:
-      - image: tungnns/numeric-app:8decfd3b779a975ab078c5fca3cb7ec92e037ecc
+      - image: tungnns/numeric-app:5d59aa57364cece1fa60edf90736d56cdd682a38
         name: numeric-container
         resources: 
           requests:
