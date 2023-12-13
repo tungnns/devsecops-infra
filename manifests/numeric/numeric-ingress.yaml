@@ -2,16 +2,23 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: numeric-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - "tungnns-homelab.tplinkdns.com"
+      secretName: numeric-tls-secret
   rules:
-  - host: numeric.example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: numeric-svc
-            port:
-              number: 8080
+    - host: tungnns-homelab.tplinkdns.com
+      http:
+        paths:
+          - path: /numeric(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: numeric-svc
+                port:
+                  number: 8080
